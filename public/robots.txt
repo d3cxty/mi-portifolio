@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hirwapie.vercel.app/sitemap.xml
