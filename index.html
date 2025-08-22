@@ -1,17 +1,116 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <!-- Base -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hirwa Pie — Full-Stack Developer | Blockchain | Cybersecurity | Game Dev</title>
+    <meta name="description" content="Hirwa Pie — Full-Stack Developer, Blockchain explorer, cybersecurity advocate, and game dev. Explore projects and get in touch." />
+    <meta name="author" content="Hirwa Pie" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hirwa Pie</title>
-  <link rel="shortcut icon" href="./src/assets/images/favicon.ico" type="image/x-icon">
-</head>
+    <!-- Canonical -->
+    <link rel="canonical" href="https://hirwapie.vercel.app/" />
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
+    <!-- Favicons (put these files in /public) -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0f172a" />
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hirwa Pie Portfolio" />
+    <meta property="og:title" content="Hirwa Pie — Full-Stack Developer | Blockchain | Cybersecurity | Game Dev" />
+    <meta property="og:description" content="Full-Stack Developer, Blockchain explorer, cybersecurity advocate, and game dev." />
+    <meta property="og:url" content="https://hirwapie.vercel.app/" />
+    <!-- put /og-image.jpg in /public (1200x630 recommended) -->
+    <meta property="og:image" content="/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hirwa Pie — Full-Stack Developer | Blockchain | Cybersecurity | Game Dev" />
+    <meta name="twitter:description" content="Full-Stack Developer, Blockchain explorer, cybersecurity advocate, and game dev." />
+    <meta name="twitter:image" content="/og-image.jpg" />
+
+    <!-- Fonts (optional) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Hirwa Pie",
+        "alternateName": ["Mucyo Hirwa"],
+        "url": "https://hirwapie.vercel.app/",
+        "jobTitle": "Full-Stack Developer",
+        "sameAs": [
+          "https://www.instagram.com/hirwapie00/",
+          "https://github.com/d3cxty",
+          "mailto:hirwapie@gmail.com"
+        ],
+        "knowsAbout": ["Blockchain","Cybersecurity","Game Development","React","Node.js","TypeScript","Solidity"]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Hirwa Pie Portfolio",
+        "url": "https://hirwapie.vercel.app/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://hirwapie.vercel.app/search?q={query}",
+          "query-input": "required name=query"
+        }
+      }
+    </script>
+
+    <!-- Minimal first-paint styles (optional) -->
+    <style>
+      :root { color-scheme: light dark; }
+      html, body { height: 100%; }
+      body {
+        margin: 0; background:#0b1220; color:#e2e8f0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+      .noscript-wrap { display:grid; place-items:center; min-height:100vh; padding:2rem; text-align:center; }
+      .noscript-card { max-width:720px; background:#111827; border-radius:1.25rem; padding:2rem; box-shadow:0 10px 30px rgba(0,0,0,.25); }
+      .chip { display:inline-block; padding:.25rem .6rem; border:1px solid #1f2937; border-radius:999px; margin:.25rem; font-size:.85rem; }
+      a { color:#93c5fd; text-decoration:none; } a:hover { text-decoration:underline; }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- JS-disabled fallback (helps SEO + accessibility) -->
+    <noscript>
+      <div class="noscript-wrap" role="region" aria-label="Portfolio preview">
+        <div class="noscript-card">
+          <h1>Hirwa Pie</h1>
+          <p>Full-Stack Developer · Blockchain Explorer · Cybersecurity Advocate · Game Dev</p>
+          <p>Passionate about coding, innovation, and mastering cutting-edge tech. Currently diving deep into blockchain and securing the digital world.</p>
+          <p>
+            <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">TypeScript</span>
+            <span class="chip">PostgreSQL</span><span class="chip">Solidity</span><span class="chip">Cybersecurity</span>
+          </p>
+          <p>
+            <strong>Connect:</strong>
+            <a href="https://www.instagram.com/hirwapie00/" target="_blank" rel="me noopener">Instagram</a> ·
+            <a href="mailto:hirwapie@gmail.com">Email</a> ·
+            <a href="https://github.com/d3cxty" target="_blank" rel="me noopener">GitHub</a>
+          </p>
+        </div>
+      </div>
+    </noscript>
+
+    <!-- Vite entry -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
