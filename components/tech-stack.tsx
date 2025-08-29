@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 const tech = [
+  // Dev stack
   { name: "Next.js", icon: "/tech/next.svg" },
   { name: "TypeScript", icon: "/tech/typescript.svg" },
   { name: "React", icon: "/tech/react.svg" },
@@ -9,6 +10,18 @@ const tech = [
   { name: "MongoDB", icon: "/tech/mongodb.svg" },
   { name: "PostgreSQL", icon: "/tech/postgres.svg" },
   { name: "Git", icon: "/tech/git.svg" },
+
+  // Cybersecurity stack
+  { name: "Java", icon: "/tech/java.svg" },
+  { name: "Nmap", icon: "/tech/nmap.svg" },
+  { name: "Metasploit", icon: "/tech/metasploit.svg" },
+  { name: "Burp Suite", icon: "/tech/burpsuite.svg" },
+  { name: "Wireshark", icon: "/tech/wireshark.svg" },
+  { name: "Kali Linux", icon: "/tech/kali.svg" },
+  { name: "Bash", icon: "/tech/bash.svg" },
+  { name: "Linux", icon: "/tech/linux.svg" },
+  { name: "Docker", icon: "/tech/docker.svg" },
+  { name: "OWASP ZAP", icon: "/tech/zap.svg" },
 ];
 
 export default function TechStack() {
