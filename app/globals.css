@@ -2,41 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg: 255 255 255;
-  --fg: 17 24 39;
-}
-.dark {
-  --bg: 3 7 18;
-  --fg: 229 231 235;
-}
-
-html, body {
-  height: 100%;
-}
+/* ---------- Base ---------- */
+html, body { height: 100%; }
 
 body {
-  background: rgb(var(--bg));
-  color: rgb(var(--fg));
+  background: rgb(255 255 255);               /* fallback for when bg layer hasn't mounted */
+  color: rgb(17 24 39);                        /* slate-900-ish for light mode */
 }
 
-.section {
-  @apply py-16 md:py-24;
+.dark body {
+  background: rgb(3 7 18);                    /* slate-950-ish */
+  color: rgb(229 231 235);
 }
 
-.h1 {
-  @apply text-3xl md:text-5xl font-bold leading-tight;
-}
-.h2 {
-  @apply text-2xl md:text-4xl font-semibold;
-}
-.mono {
-  @apply font-mono text-sm tracking-tight opacity-80;
-}
+/* ---------- Helpers / Utilities ---------- */
+.section { @apply py-16 md:py-24; }
+
+.h1 { @apply text-3xl md:text-5xl font-bold leading-tight; }
+.h2 { @apply text-2xl md:text-4xl font-semibold; }
+.mono { @apply font-mono text-sm tracking-tight opacity-80; }
 
 .card {
-  @apply rounded-2xl border border-black/5 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur p-6 shadow-sm;
+  @apply rounded-2xl border border-black/5 dark:border-white/10
+         bg-white/60 dark:bg-white/5 backdrop-blur p-6 shadow-sm;
 }
+
 .btn {
-  @apply inline-flex items-center gap-2 rounded-full px-4 py-2 border border-black/10 dark:border-white/10 hover:-translate-y-0.5 transition shadow-sm;
+  @apply inline-flex items-center gap-2 rounded-full px-4 py-2
+         border border-black/10 dark:border-white/10
+         hover:-translate-y-0.5 transition shadow-sm;
+}
+
+/* ---------- Night grid background ---------- */
+:root{
+  --grid-size: 72px;               /* cell size */
+  --grid-alpha: 0.045;             /* line strength (0.03–0.06 looks nice) */
+  --grid-rgb: 255 255 255;         /* white grid lines with low alpha */
+  --bg-rgb: 7 11 24;               /* deep navy base */
+  --spot-rgb: 64 80 255;           /* blue glow */
+}
+
+.bg-night-grid{
+  background-color: rgb(var(--bg-rgb));
+  background-image:
+    /* grid lines */
+    repeating-linear-gradient(0deg,
+      rgba(var(--grid-rgb) / var(--grid-alpha)) 0 1px,
+      transparent 1px var(--grid-size)
+    ),
+    repeating-linear-gradient(90deg,
+      rgba(var(--grid-rgb) / var(--grid-alpha)) 0 1px,
+      transparent 1px var(--grid-size)
+    ),
+    /* blue spotlight in the top-left */
+    radial-gradient(600px 420px at 12% 8%,
+      rgba(var(--spot-rgb) / .35) 0,
+      rgba(var(--spot-rgb) / 0) 60%
+    ),
+    /* subtle vignette from far top-right */
+    radial-gradient(1000px 800px at 120% -10%,
+      rgba(0 0 0 / .5) 0,
+      rgba(0 0 0 / 0) 60%
+    );
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed;
+}
+
+/* Optional: softly vignette the background layer itself (not your content) */
+.bg-night-grid-fade{
+  mask-image: radial-gradient(1200px 900px at 50% 40%, black 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(1200px 900px at 50% 40%, black 55%, transparent 100%);
+}
+
+/* Mobile perf: avoid fixed backgrounds on small screens */
+@media (max-width: 768px){
+  .bg-night-grid{ background-attachment: scroll; }
 }
