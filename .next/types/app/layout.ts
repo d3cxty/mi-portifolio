@@ -1,4 +1,4 @@
-// File: /home/hirwa/Desktop/PROJECTS/miportfolio/app/layout.tsx
+// File: /home/hirwa/Desktop/Projects/miportfolio/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
