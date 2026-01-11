@@ -23,8 +23,9 @@ body {
 .mono { @apply font-mono text-sm tracking-tight opacity-80; }
 
 .card {
-  @apply rounded-2xl border border-black/5 dark:border-white/10
-         bg-white/60 dark:bg-white/5 backdrop-blur p-6 shadow-sm;
+  @apply rounded-2xl border border-gray-200 dark:border-white/10
+         bg-white/90 dark:bg-white/5 backdrop-blur p-6 
+         shadow-sm hover:shadow-md transition-shadow;
 }
 
 /* Code block light-mode helpers */
@@ -58,37 +59,63 @@ body {
 
 .btn {
   @apply inline-flex items-center gap-2 rounded-full px-4 py-2
-         border border-black/10 dark:border-white/10
-         hover:-translate-y-0.5 transition shadow-sm;
+         border border-gray-300 dark:border-white/10
+         bg-white dark:bg-white/5
+         hover:-translate-y-0.5 hover:shadow-md transition-all shadow-sm;
 }
 
-/* ---------- Night grid background ---------- */
-:root{
-  --grid-size: 72px;               /* cell size */
-  --grid-alpha: 0.045;             /* line strength (0.03–0.06 looks nice) */
-  --grid-rgb: 255 255 255;         /* white grid lines with low alpha */
-  --bg-rgb: 7 11 24;               /* deep navy base */
-  --spot-rgb: 64 80 255;           /* blue glow */
+/* ---------- Grid background (Light & Dark) ---------- */
+:root {
+  --grid-size: 72px;
+  /* Light mode */
+  --light-grid-alpha: 0.03;
+  --light-grid-rgb: 0 0 0;           /* dark grid lines */
+  --light-bg-rgb: 249 250 251;       /* gray-50 */
+  --light-spot-rgb: 99 102 241;      /* indigo-500 glow */
+  
+  /* Dark mode */
+  --dark-grid-alpha: 0.045;
+  --dark-grid-rgb: 255 255 255;      /* white grid lines */
+  --dark-bg-rgb: 7 11 24;            /* deep navy */
+  --dark-spot-rgb: 64 80 255;        /* blue glow */
 }
 
-.bg-night-grid{
-  background-color: rgb(var(--bg-rgb));
+/* Light mode background */
+.bg-night-grid {
+  background-color: rgb(var(--light-bg-rgb));
   background-image:
-    /* grid lines */
     repeating-linear-gradient(0deg,
-      rgba(var(--grid-rgb) / var(--grid-alpha)) 0 1px,
+      rgba(var(--light-grid-rgb) / var(--light-grid-alpha)) 0 1px,
       transparent 1px var(--grid-size)
     ),
     repeating-linear-gradient(90deg,
-      rgba(var(--grid-rgb) / var(--grid-alpha)) 0 1px,
+      rgba(var(--light-grid-rgb) / var(--light-grid-alpha)) 0 1px,
       transparent 1px var(--grid-size)
     ),
-    /* blue spotlight in the top-left */
     radial-gradient(600px 420px at 12% 8%,
-      rgba(var(--spot-rgb) / .35) 0,
-      rgba(var(--spot-rgb) / 0) 60%
+      rgba(var(--light-spot-rgb) / .08) 0,
+      rgba(var(--light-spot-rgb) / 0) 60%
+    );
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed;
+}
+
+/* Dark mode background */
+.dark .bg-night-grid {
+  background-color: rgb(var(--dark-bg-rgb));
+  background-image:
+    repeating-linear-gradient(0deg,
+      rgba(var(--dark-grid-rgb) / var(--dark-grid-alpha)) 0 1px,
+      transparent 1px var(--grid-size)
     ),
-    /* subtle vignette from far top-right */
+    repeating-linear-gradient(90deg,
+      rgba(var(--dark-grid-rgb) / var(--dark-grid-alpha)) 0 1px,
+      transparent 1px var(--grid-size)
+    ),
+    radial-gradient(600px 420px at 12% 8%,
+      rgba(var(--dark-spot-rgb) / .35) 0,
+      rgba(var(--dark-spot-rgb) / 0) 60%
+    ),
     radial-gradient(1000px 800px at 120% -10%,
       rgba(0 0 0 / .5) 0,
       rgba(0 0 0 / 0) 60%
@@ -97,13 +124,11 @@ body {
   background-attachment: fixed;
 }
 
-/* Optional: softly vignette the background layer itself (not your content) */
-.bg-night-grid-fade{
+.bg-night-grid-fade {
   mask-image: radial-gradient(1200px 900px at 50% 40%, black 55%, transparent 100%);
   -webkit-mask-image: radial-gradient(1200px 900px at 50% 40%, black 55%, transparent 100%);
 }
 
-/* Mobile perf: avoid fixed backgrounds on small screens */
-@media (max-width: 768px){
-  .bg-night-grid{ background-attachment: scroll; }
+@media (max-width: 768px) {
+  .bg-night-grid { background-attachment: scroll; }
 }

@@ -4,6 +4,7 @@ import Hero from "@/components/hero";
 import TechStack from "@/components/tech-stack";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
+import GitHubGraph from "@/components/github-graph";
 import { motion } from "framer-motion";
 
 export default function Page() {
@@ -35,6 +36,10 @@ export default function Page() {
         >
           <Projects />
         </motion.div>
+      </section>
+
+      <section id="github" className="section bg-black/[.02] dark:bg-white/[.03]">
+        <GitHubGraph />
       </section>
 
       <section id="contact" className="section">
